@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<style>
+		.item1 {
+			background-color: #00ffff;
+			grid-area: menu;
+		}
+
+		.item2 {
+			grid-area: header;
+			text-align: center;
+		}
+
+		.item3 {
+			grid-area: main;
+		}
+
+		.item4 {
+			grid-area: right;
+		}
+
+		.item5 {
+			grid-area: footer;
+		}
+
+		.reset {
+			background-color: #4CAF50;
+			width: 100%;
+			height: 100px;
+		}
+
+		.submit {
+			background-color: #4CAF50;
+			width: 100%;
+			height: 100px;
+		}
+
+		.plus {
+			background-color: #00fff6;
+			width: 50%;
+			height: 25%;
+			position: top:0;
+		}
+
+		.multiply {
+			background: #00fff6;
+			width: 50%;
+			height: 25%;
+		}
+
+		.minus {
+			background-color: #00fff6;
+			width: 50%;
+			height: 25%;
+		}
+
+		.divide {
+			background-color: #00fff6;
+			width: 50%;
+			height: 25%;
+		}
+
+		.grid-container {
+			display: grid;
+			grid-template-areas: 'menu header header header' 'menu header header header' 'menu main main right' 'menu main main footer';
+			grid-gap: 3px;
+			background-color: #00E157;
+			padding: 1px;
+		}
+
+		.grid-container>div {
+			background-color: rgba(255, 255, 255, 0.8);
+			text-align: center;
+			padding: 20px 0;
+			font-size: 30px;
+		}
+
+		.awnserspot {
+			font-size: 20px;
+		}
+
+		.delete {
+			background-color: #00fff6;
+			width: 100%;
+			height: 10%;
+		}
+
+		p {
+			font-size: 100px;
+			text-align: center;
+		}
+
+		body {
+			background-color: #5d7cea;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="grid-container">
+		<div class="item1">
+			<button class="delete" onclick=delChar()>Delete</button>
+		  <button class="plus" onclick=addPlusSign()>+</button><button class="minus" onclick=addMinusSign()>-</button>
+		  <button class="multiply" onclick=addMultiplySign()>*</button><button class="divide" onclick="addDivideSign()">/</button>
+		  </div>
+  <div class="item2">JSCalc</div>
+  <div class="item3">
+    <textarea readonly rows="12" cols="90" id="input" onkeypress=myFunction(event)></textarea>
+    </div>
+  <div class="item4">
+    <button class="reset" onclick=reset()>Reset</button>
+    </div>
+  <div class="item5">
+    <button class="submit" onclick=Submit()>Submit</button>
+    </div>
+</div>
+<p id="output"></p>
+<script>
+const electron = require('electron')
+var input = document.getElementById("input")
+function Submit() {
+  item = input.value
+  input.value = ''
+  var awnser = eval(item)
+  document.getElementById("output").innerHTML = "The awnser is " + awnser
+}
+function reset() {
+  input.value = ""
+}
+function addPlusSign() {
+  input.value = input.value + "+"
+  console.log("+ was added")
+}
+function addMinusSign() {
+  input.value = input.value + "-"
+  console.log("- was added")
+}
+function addMultiplySign() {
+  input.value = input.value + "*"
+  console.log("* was added")
+}
+function addDivideSign() {
+  input.value = input.value + "/"
+  console.log("/ was added")
+}
+function delChar() {
+  input.value = input.value.substr(0,input.value.length - 1)
+}
+document.addEventListener("keypress", function(event) {
+    if (event.keyCode == 43) {
+        input.value = input.value + "+"
+    }
+})
+document.addEventListener("keypress", function(event) {
+    if (event.keyCode == 45) {
+        input.value = input.value + "-"
+    }
+})
+document.addEventListener("keypress", function(event) {
+    if (event.keyCode == 42) {
+        input.value = input.value + "*"
+    }
+})
+document.addEventListener("keypress", function(event) {
+    if (event.keyCode == 47) {
+        input.value = input.value + "/"
+    }
+})
+document.addEventListener("keypress", function(event) {
+    if (event.keyCode == 49) {
+        input.value = input.value + "1"
+    }
+})
+document.addEventListener("keypress", function(event) {
+    if (event.keyCode == 50) {
+        input.value = input.value + "2"
+    }
+})
+document.addEventListener("keypress", function(event) {
+    if (event.keyCode == 51) {
+        input.value = input.value + "3"
+    }
+})
+document.addEventListener("keypress", function(event) {
+    if (event.keyCode == 52) {
+        input.value = input.value + "4"
+    }
+})
+document.addEventListener("keypress", function(event) {
+    if (event.keyCode == 53) {
+        input.value = input.value + "5"
+    }
+})
+document.addEventListener("keypress", function(event) {
+    if (event.keyCode == 54) {
+        input.value = input.value + "6"
+    }
+})
+document.addEventListener("keypress", function(event) {
+    if (event.keyCode == 55) {
+        input.value = input.value + "7"
+    }
+})
+document.addEventListener("keypress", function(event) {
+    if (event.keyCode == 56) {
+        input.value = input.value + "8"
+    }
+})
+document.addEventListener("keypress", function(event) {
+    if (event.keyCode == 57) {
+        input.value = input.value + "9"
+    }
+})
+document.addEventListener("keypress", function(event) {
+    if (event.keyCode == 48) {
+        input.value = input.value + "0"
+    }
+})
+document.addEventListener("keypress", function(event) {
+    if (event.keyCode == 92) {
+        input.value = input.value.substr(0,input.value.length - 1)
+    }
+})
+document.addEventListener("keypress", function(event) {
+    if (event.keyCode == 13) {
+        Submit()
+    }
+})
+</script>
+</body>
+</html>
