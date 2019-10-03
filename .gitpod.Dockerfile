@@ -1,6 +1,7 @@
 FROM gitpod/workspace-full-vnc
 
 USER root
+RUN npm init
 RUN npm i -D electron@latest
 # Install custom tools, runtime, etc. using apt-get
 # For example, the command below would install "bastet" - a command line tetris clone:
